@@ -10,39 +10,47 @@
  * See the License for the specific language governing permissions and limitations under the License.
  */
 
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { LoginCallback } from '@okta/okta-react';
-import { RequiredAuth, StepupAuth, StepupAuthForce, StepupAuthAlways } from './SecureRoute';
-import Home from '../pages/Home';
-import Loading from './Loading';
-import Messages from '../pages/Messages';
-import Profile from '../pages/Profile';
-import Scenarios from '../pages/Scenarios';
-import Stepup from '../pages/Stepup';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { LoginCallback } from "@okta/okta-react";
+import {
+  RequiredAuth,
+  StepupAuth,
+  StepupAuthForce,
+  StepupAuthAlways,
+} from "./SecureRoute";
+import Home from "../pages/Home";
+import Loading from "./Loading";
+import Messages from "../pages/Messages";
+import Profile from "../pages/Profile";
+import Scenarios from "../pages/Scenarios";
+import Stepup from "../pages/Stepup";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" exact={true} element={<Home/>}/>
-      <Route path="login/callback" element={<LoginCallback loadingElement={<Loading/>}/>}/>
-      <Route path="/messages" element={<RequiredAuth/>}>
-        <Route path="" element={<Messages/>}/>
+      <Route path="/" exact={true} element={<Home />} />
+      <Route
+        path="/login/callback"
+        element={<LoginCallback loadingElement={<Loading />} />}
+      />
+      <Route path="/messages" element={<RequiredAuth />}>
+        <Route path="" element={<Messages />} />
       </Route>
-      <Route path="/profile" element={<RequiredAuth/>}>
-        <Route path="" element={<Profile/>}/>
+      <Route path="/profile" element={<RequiredAuth />}>
+        <Route path="" element={<Profile />} />
       </Route>
-      <Route path="/scenarios" element={<RequiredAuth/>}>
-        <Route path="" element={<Scenarios/>}/>
+      <Route path="/scenarios" element={<RequiredAuth />}>
+        <Route path="" element={<Scenarios />} />
       </Route>
-      <Route path="/stepup" element={<StepupAuth/>}>
-        <Route path="" element={<Stepup/>}/>
+      <Route path="/stepup" element={<StepupAuth />}>
+        <Route path="" element={<Stepup />} />
       </Route>
-      <Route path="/stepupAlways" element={<StepupAuthAlways/>}>
-        <Route path="" element={<Stepup/>}/>
+      <Route path="/stepupAlways" element={<StepupAuthAlways />}>
+        <Route path="" element={<Stepup />} />
       </Route>
-      <Route path="/reauthenticate" element={<StepupAuthForce/>}>
-        <Route path="" element={<Profile/>}/>
+      <Route path="/reauthenticate" element={<StepupAuthForce />}>
+        <Route path="" element={<Profile />} />
       </Route>
     </Routes>
   );
