@@ -43,7 +43,7 @@ const Home = () => {
   return (
     <div>
       <div>
-        <Header as="h1">B2B Test - Customer Application</Header>
+        <Header as="h1">LOCAL APP - Spoke 01</Header>
 
         {authState.isAuthenticated && !userInfo && (
           <div>Loading user information...</div>
